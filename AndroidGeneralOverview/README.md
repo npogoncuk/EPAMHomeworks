@@ -51,3 +51,14 @@ and put to res\drawable a picture "image.png". Then override it to any other "im
 >6) How many APKs can you build now? How many APKs can you install and use in a single device at once?
 ___
 ### Report
+
+![](https://github.com/npogoncuk/EPAMHomeworks/blob/android-general-overview/AndroidGeneralOverview/task1screens/key0screenshot.png)
+![](https://github.com/npogoncuk/EPAMHomeworks/blob/android-general-overview/AndroidGeneralOverview/task1screens/signreleaseScreenshot.png)
+![](https://github.com/npogoncuk/EPAMHomeworks/blob/android-general-overview/AndroidGeneralOverview/task1screens/add%20suffix%20Screenshot.png)
+![](https://github.com/npogoncuk/EPAMHomeworks/blob/android-general-overview/AndroidGeneralOverview/task1screens/Task%202Screenshot.png)
+![](https://github.com/npogoncuk/EPAMHomeworks/blob/android-general-overview/AndroidGeneralOverview/task1screens/3.1Screenshot.png)
+![](https://github.com/npogoncuk/EPAMHomeworks/blob/android-general-overview/AndroidGeneralOverview/task1screens/3.2%20Screenshot%20.png)
+![](https://github.com/npogoncuk/EPAMHomeworks/blob/android-general-overview/AndroidGeneralOverview/task1screens/4Screenshot.png)
+![](https://github.com/npogoncuk/EPAMHomeworks/blob/android-general-overview/AndroidGeneralOverview/task1screens/5.1%20Screenshot%20.png)
+![](https://github.com/npogoncuk/EPAMHomeworks/blob/android-general-overview/AndroidGeneralOverview/task1screens/5.2%20Screenshot.png)
+![](https://github.com/npogoncuk/EPAMHomeworks/blob/android-general-overview/AndroidGeneralOverview/task1screens/6.1%20Screenshot.png)
