@@ -4,6 +4,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\AndroidKeyStore\\key0.jks')
+            storePassword 'keystorekey0'
+            keyAlias 'key0'
+            keyPassword 'keystorekey0'
+        }
+    }
     namespace 'com.example.androidgeneraloverview'
     compileSdk 33
 
@@ -15,12 +23,18 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", "\"https://myserver.com/\""
     }
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            applicationIdSuffix ".debug"
         }
     }
     compileOptions {
@@ -30,13 +44,24 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    flavorDimensions 'default'
+    productFlavors {
+        prod {
+            dimension 'default'
+        }
+        preprod {
+            dimension 'default'
+            buildConfigField "String", "BASE_URL", "\"https://preprod.myserver.com/\""
+            versionNameSuffix "-preprod"
+        }
+    }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
