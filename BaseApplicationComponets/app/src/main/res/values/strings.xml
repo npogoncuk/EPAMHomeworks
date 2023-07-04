@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BaseApplicationComponets</string>
+    <string name="go_forward">Go Forward</string>
+    <string name="go_back">Go Back</string>
+    <string name="activity_text">Activity %1$s\nRandom id: %2$d</string>
+    <string name="first_part">First Part</string>
+    <string name="second_part">Second Part</string>
+    <string name="how_many_times_was_accessed">How Many Times Was Accessed</string>
+</resources>
