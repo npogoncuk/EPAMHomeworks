@@ -9,8 +9,20 @@
 
     <FrameLayout
         android:id="@+id/frameLayout"
-        tools:background="@color/black"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewBattery"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/black"
+        tools:layout_editor_absoluteX="-68dp" />
+
+    <ImageView
+        android:id="@+id/imageViewBattery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/baseline_battery_full_96"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
