@@ -49,9 +49,9 @@ class ContactListFragment : Fragment() {
             ContactsContract.Contacts.DISPLAY_NAME,
             ContactsContract.CommonDataKinds.Phone.NUMBER,
             ContactsContract.CommonDataKinds.Organization.COMPANY,
-            ContactsContract.CommonDataKinds.Email.DATA
+            ContactsContract.CommonDataKinds.Email.ADDRESS,
         )
-        val cursor: Cursor? = cr.query(
+        var cursor: Cursor? = cr.query(
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
             PROJECTION,
             null,
@@ -83,6 +83,33 @@ class ContactListFragment : Fragment() {
                     number
                 )
             }
+
+        } finally {
+            cursor.close()
+        }
+        cursor = cr.query(
+            ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+            null,
+            null,
+            null,
+            ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME + " ASC"
+        )
+        cursor ?: return contacts
+        try {
+            val nameIndex: Int = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)
+            val emailIndex: Int = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA)
+            var displayName: String
+            var email: String
+            while (cursor.moveToNext()) {
+                displayName = cursor.getString(nameIndex)
+                email = cursor.getString(emailIndex)
+                    contacts.find { it.name == displayName }?.also {
+                        contacts -= it
+                        contacts += it.copy(email = email)
+                    }
+
+            }
+
         } finally {
             cursor.close()
         }

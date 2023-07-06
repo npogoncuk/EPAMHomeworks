@@ -1,6 +1,9 @@
 package com.example.baseapplicationcompomentspart2
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -48,9 +51,25 @@ class DetailFragment : Fragment() {
         }
         view.findViewById<TextView>(R.id.textViewEmail).apply {
             text = email
+            setOnClickListener {
+                val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+                    data = Uri.parse("mailto:")
+                    putExtra(Intent.EXTRA_EMAIL, email)
+                }
+                emailIntent.resolveActivity(requireActivity().packageManager) ?: return@setOnClickListener
+                startActivity(emailIntent)
+            }
         }
         view.findViewById<TextView>(R.id.textViewPhoneNumber).apply {
             text = phoneNumber
+            Log.d("Detail Fragment", "is in apply")
+            setOnClickListener {
+                val dialIntent = Intent(Intent.ACTION_DIAL).apply {
+                    data = Uri.parse("tel:$phoneNumber")
+                }
+                dialIntent.resolveActivity(requireActivity().packageManager) ?: return@setOnClickListener
+                startActivity(dialIntent)
+            }
         }
     }
 

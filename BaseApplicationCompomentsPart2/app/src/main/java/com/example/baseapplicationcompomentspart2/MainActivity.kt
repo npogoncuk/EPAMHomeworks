@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.imageViewBattery.setImageResource(if (isCharging(this)) R.drawable.baseline_battery_charging_full_96 else R.drawable.baseline_battery_full_96)
 
         if (!haveReadContactsPermission(this)) {
             Toast.makeText(this, "You didn't grand the permission", Toast.LENGTH_SHORT).show()
@@ -36,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var batteryChargingReceiver: BatteryChargingReceiver
     override fun onStart() {
         super.onStart()
+        binding.imageViewBattery.setImageResource(if (isCharging(this)) R.drawable.baseline_battery_charging_full_96 else R.drawable.baseline_battery_full_96)
         val filter = IntentFilter()
         filter.addAction(Intent.ACTION_POWER_CONNECTED)
         filter.addAction(Intent.ACTION_POWER_DISCONNECTED)
