@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
 }
 
 fun haveReadContactsPermission(context: Context) =

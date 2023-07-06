@@ -7,7 +7,8 @@ import com.example.baseapplicationcompomentspart2.databinding.ContactItemBinding
 import com.example.baseapplicationcompomentspart2.model.Contact
 
 class ContactListAdapter(
-    private val contacts: List<Contact>
+    private val contacts: List<Contact>,
+    private val onItemClicked: (String, String, String, String) -> Unit
 ) : RecyclerView.Adapter<ContactListAdapter.ViewHolder>() {
 
     inner class ViewHolder(val binding: ContactItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -24,5 +25,10 @@ class ContactListAdapter(
         val binding = holder.binding
         binding.textViewName.text = contact.name
         binding.textViewNumber.text = contact.phoneNumber
+        binding.root.setOnClickListener {
+            with(contact) {
+                onItemClicked.invoke(name, organization, email, phoneNumber)
+            }
+        }
     }
 }

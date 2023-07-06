@@ -21,7 +21,7 @@ class ContactListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentContactListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -29,7 +29,13 @@ class ContactListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if (haveReadContactsPermission(requireActivity())) {
-            binding.recyclerView.adapter = ContactListAdapter(getContacts())
+            fun navigateToDetailsFragment(name: String, organization: String, email: String, phoneNumber: String) {
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.frameLayout, DetailFragment.newInstance(name, organization, email, phoneNumber))
+                    .addToBackStack(null)
+                    .commit()
+            }
+            binding.recyclerView.adapter = ContactListAdapter(getContacts(), ::navigateToDetailsFragment)
         } else {
             Toast.makeText(requireContext(), "You didn't grand the permission", Toast.LENGTH_SHORT).show()
         }
