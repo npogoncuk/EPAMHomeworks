@@ -11,14 +11,9 @@ import com.example.fragments.databinding.Fragment2Binding
 private const val ARG_COLOUR = "colour"
 
 class Fragment2 : Fragment(), ColourChanger {
+
     private var colour: Int? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            colour = it.getInt(ARG_COLOUR)
-        }
-    }
 
     private lateinit var binding: Fragment2Binding
 
@@ -27,20 +22,26 @@ class Fragment2 : Fragment(), ColourChanger {
         savedInstanceState: Bundle?
     ): View {
         binding = Fragment2Binding.inflate(inflater, container, false)
+        colour = arguments?.getInt(ARG_COLOUR)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.textView.text = "Fragment 2"
+        colour?.also {
+            setColour(it)
+        }
     }
 
     companion object {
         @JvmStatic
         fun newInstance(colour: Int?) =
             Fragment2().apply {
-                arguments = Bundle().apply {
-                    putInt(ARG_COLOUR, colour ?: 0)
+                colour?.let {
+                    arguments = Bundle().apply {
+                        putInt(ARG_COLOUR, colour)
+                    }
                 }
             }
     }
