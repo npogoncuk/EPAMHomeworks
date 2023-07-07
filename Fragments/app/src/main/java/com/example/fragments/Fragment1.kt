@@ -13,10 +13,14 @@ private const val ARG_COLOUR = "colour"
 
 class Fragment1 : Fragment(), ColourChanger {
 
-    private var colour: Int? = null
+    var colour: Int? = null
 
     private lateinit var binding: Fragment1Binding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.d("mylog", "Fr1 onCreated $colour")
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,7 +33,6 @@ class Fragment1 : Fragment(), ColourChanger {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.textView.text = "Fragment 1"
-        Log.d("mylog", "${(binding.fragmentFrameLayout.background as ColorDrawable).color}")
         colour?.also {
             setColour(it)
         }
@@ -51,5 +54,10 @@ class Fragment1 : Fragment(), ColourChanger {
     override fun getColour(): Int = (binding.fragmentFrameLayout.background as ColorDrawable).color
     override fun setColour(colour: Int) {
         binding.fragmentFrameLayout.background = ColorDrawable(colour)
+        this.colour = colour
+    }
+
+    override fun toString(): String {
+        return "Fragment1 color: $colour"
     }
 }

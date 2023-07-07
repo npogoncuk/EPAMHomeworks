@@ -33,7 +33,23 @@ class ControllerFragment : Fragment() {
             topColourChanger.setColour(bottomColour)
             bottomColourChanger.setColour(topColour)
         }
+
+        binding.buttonSwapPlaces.setOnClickListener {
+            val topFragment = parentFragmentManager.findFragmentById(R.id.frameLayoutTop)!!
+            val bottomFragment = parentFragmentManager.findFragmentById(R.id.frameLayoutBottom)!!
+            parentFragmentManager.beginTransaction()
+                .remove(topFragment)
+                .remove(bottomFragment)
+                .detach(topFragment)
+                .detach(bottomFragment)
+                .commitNow()
+            parentFragmentManager.beginTransaction()
+                .add(R.id.frameLayoutTop, bottomFragment)
+                .add(R.id.frameLayoutBottom, topFragment)
+                .commit()
+        }
     }
+
     companion object {
         @JvmStatic
         fun newInstance() = ControllerFragment()
