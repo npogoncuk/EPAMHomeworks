@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="swap_colours">Swap colours</string>
     <string name="swap_places">Swap places</string>
+    <string name="alert">Alert</string>
+    <string name="enter_text_to_add">Enter text to add</string>
 </resources>
