@@ -20,14 +20,15 @@ class Fragment2 : Fragment(), ColourChanger {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("mylog", "Fr2 onCreated $colour")
+        savedInstanceState?.let {
+            colour = it.getInt(ARG_COLOUR)
+        }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = Fragment2Binding.inflate(inflater, container, false)
-        if (colour == null) colour = arguments?.getInt(ARG_COLOUR)
         return binding.root
     }
 
@@ -37,18 +38,16 @@ class Fragment2 : Fragment(), ColourChanger {
         colour?.also {
             setColour(it)
         }
+        colour = getColour()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(ARG_COLOUR, colour!!)
+    }
     companion object {
         @JvmStatic
-        fun newInstance(colour: Int?) =
-            Fragment2().apply {
-                colour?.let {
-                    arguments = Bundle().apply {
-                        putInt(ARG_COLOUR, colour)
-                    }
-                }
-            }
+        fun newInstance() = Fragment2()
     }
 
     override fun getColour(): Int = (binding.fragmentFrameLayout.background as ColorDrawable).color
