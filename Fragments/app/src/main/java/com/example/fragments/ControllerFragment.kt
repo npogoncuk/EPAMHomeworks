@@ -7,21 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.fragments.databinding.FragmentControllerBinding
 
-class ControllerFragment : Fragment() {
+private const val TEXT_KEY = "TEXT_KEY"
+class ControllerFragment : Fragment(), AddTextAlertDialogFragment.TextReceiverFromDialog {
 
     private lateinit var binding: FragmentControllerBinding
+    private var savedText: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentControllerBinding.inflate(inflater, container, false)
+        savedInstanceState?.let {
+            savedText = it.getString(TEXT_KEY)
+        }
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.textViewList.text = savedText ?: ""
         binding.buttonSwapColours.setOnClickListener {
             val topFragment = parentFragmentManager.findFragmentById(R.id.frameLayoutTop)
             val bottomFragment = parentFragmentManager.findFragmentById(R.id.frameLayoutBottom)
@@ -49,10 +54,23 @@ class ControllerFragment : Fragment() {
                 .add(R.id.frameLayoutBottom, topFragment)
                 .commit()
         }
+
+        binding.buttonShowAlertFragment.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .add(AddTextAlertDialogFragment(), AddTextAlertDialogFragment.TAG)
+                .commit()
+        }
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = ControllerFragment()
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(TEXT_KEY, binding.textViewList.text.toString())
     }
+
+    override fun receiveText(text: String) {
+        val previousText = binding.textViewList.text.toString()
+        binding.textViewList.text = previousText + "\n" + text
+    }
+
+
 }

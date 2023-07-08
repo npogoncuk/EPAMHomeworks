@@ -4,26 +4,59 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="28dp"
+    android:padding="12dp"
     tools:context=".ControllerFragment">
 
 
-    <Button
-        android:id="@+id/buttonSwapColours"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:text="@string/swap_colours" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/buttonSwapColours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/swap_colours" />
+
+
+        <Button
+            android:id="@+id/buttonSwapPlaces"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/swap_places" />
+    </LinearLayout>
 
     <Space
         android:layout_width="10dp"
         android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/buttonSwapPlaces"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:text="@string/swap_places" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonShowAlertFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/alert" />
+
+        <Space
+            android:layout_width="10dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/textViewList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:text="A lot of textt\n frfereverrev\n gegegrege\negrgerge\ntext" />
+    </LinearLayout>
 
 </LinearLayout>
