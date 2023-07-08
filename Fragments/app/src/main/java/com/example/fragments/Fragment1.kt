@@ -13,13 +13,16 @@ private const val ARG_COLOUR = "colour"
 
 class Fragment1 : Fragment(), ColourChanger {
 
-    var colour: Int? = null
+    private var colour: Int? = null
 
     private lateinit var binding: Fragment1Binding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        savedInstanceState?.let {
+            colour = it.getInt(ARG_COLOUR)
+        }
         Log.d("mylog", "Fr1 onCreated $colour")
     }
     override fun onCreateView(
@@ -27,7 +30,6 @@ class Fragment1 : Fragment(), ColourChanger {
         savedInstanceState: Bundle?
     ): View {
         Log.d("mylog", "Fr1 onCreateView $colour")
-        if (colour == null) colour = arguments?.getInt(ARG_COLOUR)
         binding = Fragment1Binding.inflate(inflater, container, false)
         return binding.root
     }
@@ -39,6 +41,7 @@ class Fragment1 : Fragment(), ColourChanger {
         colour?.also {
             setColour(it)
         }
+        colour = getColour()
     }
 
     override fun onStart() {
@@ -79,16 +82,16 @@ class Fragment1 : Fragment(), ColourChanger {
 
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.d("mylog", "Fr1 onSaveInstanceState $colour")
+        outState.putInt(ARG_COLOUR, colour!!)
+    }
+
     companion object {
         @JvmStatic
-        fun newInstance(colour: Int?) =
-            Fragment1().apply {
-                colour?.let {
-                    arguments = Bundle().apply {
-                        putInt(ARG_COLOUR, colour)
-                    }
-                }
-            }
+        fun newInstance() = Fragment1()
+
     }
 
 
