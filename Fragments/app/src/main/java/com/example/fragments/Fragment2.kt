@@ -27,7 +27,7 @@ class Fragment2 : Fragment(), ColourChanger {
         savedInstanceState: Bundle?
     ): View {
         binding = Fragment2Binding.inflate(inflater, container, false)
-        colour = arguments?.getInt(ARG_COLOUR)
+        if (colour == null) colour = arguments?.getInt(ARG_COLOUR)
         return binding.root
     }
 

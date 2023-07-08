@@ -36,4 +36,5 @@ class MainActivity : AppCompatActivity() {
         outState.putInt(BOTTOM_COLOUR_KEY, bottomColour!!)
         outState.putBoolean(FRAGMENT1_TOP_KEY, supportFragmentManager.findFragmentById(R.id.frameLayoutTop)!!::class.java.name == Fragment1::class.java.name)
     }
+
 }
