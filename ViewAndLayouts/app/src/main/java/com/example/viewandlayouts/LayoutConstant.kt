@@ -1,0 +1,24 @@
+package com.example.viewandlayouts
+
+enum class LayoutConstant {
+    LINEAR_LAYOUT_CONSTANT {
+        override val constant: Int
+            get() = 0
+    },
+    RELATIVE_LAYOUT_CONSTANT {
+        override val constant: Int
+            get() = 1
+
+    },
+    GRID_LAYOUT_CONSTANT {
+        override val constant: Int
+            get() = 2
+
+    },
+    CONSTRAINT_LAYOUT_CONSTANT {
+        override val constant: Int
+            get() = 3
+
+    };
+    abstract val constant: Int
+}

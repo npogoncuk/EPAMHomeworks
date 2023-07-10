@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">View And Layouts</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_for_spannable_string">This is a spannable string. Click on link to open calculator created with LinearLayout, RelativeLayout, GridLayout, ConstraintLayout</string>
+    <array name="layouts_names">
+        <item>LinearLayout</item>
+        <item>RelativeLayout</item>
+        <item>GridLayout</item>
+        <item>ConstraintLayout</item>
+    </array>
 </resources>
