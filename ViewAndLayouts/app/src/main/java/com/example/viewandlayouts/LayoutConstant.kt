@@ -21,4 +21,15 @@ enum class LayoutConstant {
 
     };
     abstract val constant: Int
+
+    companion object {
+        fun newInstance(const: Int): LayoutConstant =
+            when(const) {
+                0 -> LINEAR_LAYOUT_CONSTANT
+                1 -> RELATIVE_LAYOUT_CONSTANT
+                2 -> GRID_LAYOUT_CONSTANT
+                3 -> CONSTRAINT_LAYOUT_CONSTANT
+                else -> throw IllegalArgumentException("There is no layout for this constant")
+            }
+    }
 }
