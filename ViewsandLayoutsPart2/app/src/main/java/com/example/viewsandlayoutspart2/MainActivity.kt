@@ -3,6 +3,7 @@ package com.example.viewsandlayoutspart2
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.example.viewsandlayoutspart2.databinding.ActivityMainNavBinding
@@ -19,6 +20,12 @@ class MainActivity : AppCompatActivity(), OnNavigationItemSelectedListener {
         setContentView(binding.root)
         setSupportActionBar(binding.activityMainLayout.toolbarLayout.toolbar)
         binding.navigationView.setNavigationItemSelectedListener(this)
+
+        val toggle = ActionBarDrawerToggle(
+            this, binding.drawerLayout, binding.activityMainLayout.toolbarLayout.toolbar, R.string.open_nav_drawer, R.string.close_nav_drawer
+        )
+        binding.drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
