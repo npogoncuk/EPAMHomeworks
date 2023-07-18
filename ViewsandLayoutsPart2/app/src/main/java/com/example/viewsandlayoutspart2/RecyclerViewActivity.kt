@@ -15,5 +15,8 @@ class RecyclerViewActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarLayout.toolbar.apply {
             title = "RecyclerView Task"
         })
+        binding.recyclerView.apply {
+            adapter = MultipleViewAdapter(MultipleViewAdapter.defaultData)
+        }
     }
 }
