@@ -7,7 +7,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.viewsandlayoutspart2.databinding.ActivityViewPagerBinding
 
-private const val NUM_FRAGMENTS = 3
 class ViewPagerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityViewPagerBinding
@@ -29,9 +28,25 @@ class ViewPagerActivity : AppCompatActivity() {
         }
     }
 
-    private inner class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-        override fun getItemCount(): Int = NUM_FRAGMENTS
 
-        override fun createFragment(position: Int): Fragment = ViewPagerFragment.newInstance(position + 1)
+    class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa){
+
+        private val fragments = (1..3).map { ViewPagerFragment.newInstance(it) }.toMutableList()
+        override fun getItemCount(): Int = fragments.size
+
+        override fun createFragment(position: Int): Fragment = fragments[position]
+
+
+        /**
+         * Add fragment4
+         *
+         * @return the number of fragments before adding 4-th fragment
+         */
+        fun addFragment4(): Int {
+            fragments += ViewPagerFragment.newInstance(4)
+            notifyItemInserted(3)
+            return fragments.size - 1
+        }
     }
+
 }

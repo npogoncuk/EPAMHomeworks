@@ -26,4 +26,12 @@
         android:gravity="center_horizontal"
         android:textSize="56sp"
         tools:text="@string/fragment_and_number" />
+
+    <Button
+        android:id="@+id/buttonOpen4Fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_gravity="center"
+        android:text="@string/open_4_th_fragment" />
 </FrameLayout>

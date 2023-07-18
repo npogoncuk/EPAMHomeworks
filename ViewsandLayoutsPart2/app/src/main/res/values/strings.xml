@@ -4,4 +4,5 @@
     <string name="fragment_image_view_description">Fragment Number</string>
     <string name="open_nav_drawer">Open navigation drawer</string>
     <string name="close_nav_drawer">Close navigation drawer</string>
+    <string name="open_4_th_fragment">Open 4-th Fragment</string>
 </resources>

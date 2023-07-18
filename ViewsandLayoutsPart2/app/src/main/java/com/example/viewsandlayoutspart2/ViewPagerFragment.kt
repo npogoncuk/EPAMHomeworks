@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.widget.ViewPager2
 
 private const val ARG_NUMBER = "param1"
 
@@ -30,8 +33,17 @@ class ViewPagerFragment : Fragment() {
                 1 -> R.drawable.one
                 2 -> R.drawable.two
                 3 -> R.drawable.three
-                else -> throw IllegalArgumentException("Fragment number must be from 1 to 3")
+                4 -> R.drawable.baseline_looks_4_640
+                else -> throw IllegalArgumentException("Fragment number must be from 1 to 4")
             })
+        }
+        view.findViewById<Button>(R.id.buttonOpen4Fragment).apply {
+            if (requireArguments().getInt(ARG_NUMBER) == 3) visibility = View.VISIBLE
+            setOnClickListener {
+                val viewPager = requireActivity().findViewById<ViewPager2>(R.id.viewPager)
+                val sizeBefore = (viewPager.adapter as ViewPagerActivity.ViewPagerAdapter).addFragment4()
+                viewPager.setCurrentItem(sizeBefore, true)
+            }
         }
     }
 
