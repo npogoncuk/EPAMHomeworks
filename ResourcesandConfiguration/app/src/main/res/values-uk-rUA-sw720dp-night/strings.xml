@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ресурси і конфігурації</string>
+    <string name="default_text">У вас зараз українська локалізація, кожна зі сторін вашого екрану >= 720dp і у вас ввімкнений нічний режим</string>
+</resources>
