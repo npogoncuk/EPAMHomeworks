@@ -9,3 +9,4 @@
 7. [Views and Layouts](https://github.com/npogoncuk/EPAMHomeworks/tree/main/ViewAndLayouts#epamhomeworks)
 8. [Views and Layouts Part 2](https://github.com/npogoncuk/EPAMHomeworks/tree/main/ViewsandLayoutsPart2#epamhomeworks)
 9. [Resources and Configuration](https://github.com/npogoncuk/EPAMHomeworks/tree/main/ResourcesandConfiguration#epamhomeworks)
+10. [Theme and Styles](https://github.com/npogoncuk/EPAMHomeworks/tree/main/ThemeAndStyles#epamhomeworks)
