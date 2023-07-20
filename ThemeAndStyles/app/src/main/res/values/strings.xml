@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Theme And Styles</string>
+    <string name="score">Score: %1$f</string>
+    <string name="transition_activity">Transition Activity</string>
 </resources>
