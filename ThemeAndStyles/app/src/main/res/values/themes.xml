@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ThemeAndStyles" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.ThemeAndStyles" parent="Base.Theme.ThemeAndStyles" />
+
+    <style name="ChangeThemeButtonStyle" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:text">Change theme</item>
+        <item name="icon">@drawable/baseline_360_24</item>
+        <item name="iconTint">@color/design_default_color_primary</item>
+    </style>
+</resources>
