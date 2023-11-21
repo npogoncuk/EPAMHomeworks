@@ -11,3 +11,4 @@
 9. [Resources and Configuration](https://github.com/npogoncuk/EPAMHomeworks/tree/main/ResourcesandConfiguration#epamhomeworks)
 10. [Theme and Styles](https://github.com/npogoncuk/EPAMHomeworks/tree/main/ThemeAndStyles#epamhomeworks)
 11. [Multithreading Part 1](https://github.com/npogoncuk/EPAMHomeworks/tree/main/MultithreadingPart1#epamhomeworks)
+12. [Multithreading Part 2](https://github.com/npogoncuk/EPAMHomeworks/tree/main/MultithreadingPart2#epamhomeworks)
