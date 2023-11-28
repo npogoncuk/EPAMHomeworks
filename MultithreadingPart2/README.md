@@ -1,6 +1,6 @@
 # EPAMHomeworks
 ___
-### Task 4
+### Task 12
 ![image](https://github.com/npogoncuk/EPAMHomeworks/blob/main/tasksscreens/multithreading-part2.png)
 
 Video
